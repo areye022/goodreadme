@@ -1,0 +1,14 @@
+{
+  "name": "goodreadme",
+  "version": "1.0.0",
+  "description": "CLI Application by Michael Hanson which produces a good README file for a given repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Hanson",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
