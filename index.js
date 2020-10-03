@@ -1,6 +1,16 @@
+const licenses = require("./licenses.js"); 
 const fs = require("fs"); 
 const inquirer = require("inquirer"); 
 const util = require("util"); 
+
+//Create an array of just the license titles. 
+const licenseTitles = []; 
+for(let license in licenses.licenseDescriptions) {
+    licenseTitles.push(license); 
+    //console.log(licenses.licenseDescriptions[license]); 
+}
+
+console.log(licenseTitles); 
 
 //Get the responses from the user. 
 promptUser(); 
@@ -36,6 +46,14 @@ function promptUser() {
             type: "input",
             message: "Test Instructions:",
             name: "Tests"
+        },
+        {
+            type: "checkbox",
+            message: "Choose a License:",
+            choices: [
+                ...licenseTitles
+            ],
+            name: "License"
         }
     ])
     .then(answers => {
@@ -46,7 +64,8 @@ function promptUser() {
             Installation,
             Usage,
             Contributing,
-            Tests
+            Tests,
+            License
         } = answers; 
 
         //Using the destructured responses, create an iterable array that holds the heading and its corresponding text. 
@@ -71,14 +90,19 @@ function promptUser() {
             {
                 heading: "Tests",
                 headingText: Tests
+            },
+            {
+                heading: "License",
+                headingText: `This application is licensed under the ${License}.`
             }
         ];
     
         //Create the README document using the project title. 
         createDocument(name); 
 
-        return headings; 
+        addBadge(License); 
 
+        return headings; 
     })
     .then(headings => {
         //Create the Table of Contents
@@ -104,7 +128,11 @@ function promptUser() {
 
 function createDocument(name) {
     //Create the README document. 
-    fs.writeFileSync("README.md", `# ${name}\n`); 
+    fs.writeFileSync("README.md", `# ${name}\n`);
+}
+
+function addBadge(chosenLicense) {
+    fs.appendFileSync("README.md", `${licenses.licenseDescriptions[chosenLicense].badge}\n`)
 }
 
 function createTableOfContents(headings) {

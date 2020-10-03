@@ -1,4 +1,5 @@
-# Sample App
+# Test
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
 * [Description](#description)
@@ -6,28 +7,34 @@
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
+* [License](#license)
 
 ## Description
 
-sample description
+test desc
 
 
 ## Installation
 
-sample instructions
+test inst
 
 
 ## Usage
 
-sample usage
+test usage
 
 
 ## Contributing
 
-sample contribution
+test cont
 
 
 ## Tests
 
-sample test
+test inst
+
+
+## License
+
+This application is licensed under the MIT License.
 
