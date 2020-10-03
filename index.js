@@ -1,6 +1,6 @@
 const fs = require("fs"); 
 const inquirer = require("inquirer"); 
-const { createBrotliDecompress } = require("zlib");
+const util = require("util"); 
 
 //Get the responses from the user. 
 promptUser(); 
@@ -104,19 +104,18 @@ function promptUser() {
 
 function createDocument(name) {
     //Create the README document. 
-    fs.writeFile("README.md", `# ${name}\n`, error => {
+    fs.writeFileSync("README.md", `# ${name}\n`, error => {
         if(error) {
             return console.log(error); 
         }
-
-        console.log("readme file created"); 
-    });
+        
+    }); 
 
 }
 
 function createTableOfContents(headings) {
 
-    fs.appendFile("README.md", `\n## Table of Contents\n`, error => {
+    fs.appendFileSync("README.md", `\n## Table of Contents\n`, error => {
         if(error) {
             console.log(error); 
         }
@@ -127,7 +126,7 @@ function createTableOfContents(headings) {
 
 function createTableOfContentsItem(heading) {
 
-    fs.appendFile("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`, error => {
+    fs.appendFileSync("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`, error => {
         if(error) {
             console.log(error); 
         }
@@ -138,13 +137,11 @@ function createTableOfContentsItem(heading) {
 
 async function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
-    fs.appendFile("README.md", `\n## ${heading}\n\n${headingText}\n\n`, error => {
+    fs.appendFileSync("README.md", `\n## ${heading}\n\n${headingText}\n\n`, error => {
         if(error) {
             console.log(error); 
         }
-
-        console.log(`Appended ${heading} and text content ${headingText}`); 
-    })
+    }); 
 
 }
 
