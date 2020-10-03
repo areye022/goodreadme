@@ -1,4 +1,4 @@
-# This is a Test Application
+# Sample App
 
 ## Table of Contents
 * [Description](#description)
@@ -9,25 +9,25 @@
 
 ## Description
 
-This is a test description.
+sample description
 
 
 ## Installation
 
-Instructions go here.
+sample instructions
 
 
 ## Usage
 
-Here is some usage information.
+sample usage
 
 
 ## Contributing
 
-Here are contribution guidelines.
+sample contribution
 
 
 ## Tests
 
-Here is how to test the application.
+sample test
 

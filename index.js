@@ -104,44 +104,24 @@ function promptUser() {
 
 function createDocument(name) {
     //Create the README document. 
-    fs.writeFileSync("README.md", `# ${name}\n`, error => {
-        if(error) {
-            return console.log(error); 
-        }
-        
-    }); 
-
+    fs.writeFileSync("README.md", `# ${name}\n`); 
 }
 
 function createTableOfContents(headings) {
 
-    fs.appendFileSync("README.md", `\n## Table of Contents\n`, error => {
-        if(error) {
-            console.log(error); 
-        }
-
-    }); 
+    fs.appendFileSync("README.md", `\n## Table of Contents\n`); 
 
 }
 
 function createTableOfContentsItem(heading) {
 
-    fs.appendFileSync("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`, error => {
-        if(error) {
-            console.log(error); 
-        }
-
-    }); 
+    fs.appendFileSync("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`); 
 
 }
 
 async function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
-    fs.appendFileSync("README.md", `\n## ${heading}\n\n${headingText}\n\n`, error => {
-        if(error) {
-            console.log(error); 
-        }
-    }); 
+    fs.appendFileSync("README.md", `\n## ${heading}\n\n${headingText}\n\n`); 
 
 }
 
