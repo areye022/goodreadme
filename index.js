@@ -77,11 +77,28 @@ function promptUser() {
         //Create the README document using the project title. 
         createDocument(name); 
 
+        return headings; 
+
+    })
+    .then(headings => {
+        //Create the Table of Contents
+        createTableOfContents(headings); 
+
+        return headings; 
+    })
+    .then(headings => {
+
+        headings.forEach(heading => {
+            createTableOfContentsItem(heading); 
+        }); 
+
+        return headings; 
+    })
+    .then(headings => {
         //For each heading, add the appropriate section to the README.
         headings.forEach(heading => {
             addSection(heading.heading, heading.headingText); 
         }); 
-
     });
 }
 
@@ -97,7 +114,29 @@ function createDocument(name) {
 
 }
 
-function addSection(heading, headingText) {
+function createTableOfContents(headings) {
+
+    fs.appendFile("README.md", `\n## Table of Contents\n`, error => {
+        if(error) {
+            console.log(error); 
+        }
+
+    }); 
+
+}
+
+function createTableOfContentsItem(heading) {
+
+    fs.appendFile("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`, error => {
+        if(error) {
+            console.log(error); 
+        }
+
+    }); 
+
+}
+
+async function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
     fs.appendFile("README.md", `\n## ${heading}\n\n${headingText}\n\n`, error => {
         if(error) {

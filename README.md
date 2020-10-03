@@ -1,13 +1,20 @@
-# Sample
+# Sample Application
+* [Installation](#installation)
+
+## Table of Contents
+* [Description](#description)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
 ## Description
 
-test description
+sample description.
 
 
 ## Usage
 
-sample usage info
+sample usage information
 
 
 ## Installation
@@ -15,12 +22,12 @@ sample usage info
 sample instructions
 
 
-## Tests
-
-sample test instructions
-
-
 ## Contributing
 
-sample guidelines
+sample cont
+
+
+## Tests
+
+sample test inst
 
