@@ -1,5 +1,5 @@
 # Sample
-[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)
+[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 ## Table of Contents
 * [Description](#description)
@@ -11,7 +11,7 @@
 
 ## Description
 
-sample
+samplw
 
 
 ## Installation
@@ -36,5 +36,5 @@ sample
 
 ## License
 
-This application is licensed under the The zlib/libpng License.
+This application is licensed under the [BSD 2-Clause License](./LICENSE.txt).
 

@@ -54,6 +54,16 @@ function promptUser() {
                 ...licenseTitles
             ],
             name: "License"
+        },
+        {
+            type: "input",
+            message: "Application or Owner Name (for License)",
+            name: "appName"
+        },
+        {
+            type: "input",
+            message: "Year (for License)",
+            name: "Year"
         }
     ])
     .then(answers => {
@@ -65,7 +75,9 @@ function promptUser() {
             Usage,
             Contributing,
             Tests,
-            License
+            License,
+            appName,
+            Year
         } = answers; 
 
         //Using the destructured responses, create an iterable array that holds the heading and its corresponding text. 
@@ -93,7 +105,7 @@ function promptUser() {
             },
             {
                 heading: "License",
-                headingText: `This application is licensed under the ${License}.`
+                headingText: `This application is licensed under the [${License}](./LICENSE.txt).`
             }
         ];
     
@@ -102,6 +114,9 @@ function promptUser() {
 
         //Add the badge for the license under the title. 
         addBadge(License); 
+
+        //Create the LICENSE document.
+        createLicenseFile(License, appName, Year); 
 
         return headings; 
     })
@@ -135,6 +150,10 @@ function createDocument(name) {
 function addBadge(chosenLicense) {
     //Add the correct badge to the page. 
     fs.appendFileSync("README.md", `${licenses.licenseDescriptions[chosenLicense].badge}\n`)
+}
+
+function createLicenseFile(chosenLicense, appName, year) {
+    fs.writeFileSync("LICENSE.txt", `Copyright (c) ${year} ${appName} \n\n ${licenses.licenseDescriptions[chosenLicense].text}`); 
 }
 
 function createTableOfContents(headings) {
