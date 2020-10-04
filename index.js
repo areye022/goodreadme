@@ -62,6 +62,16 @@ function promptUser() {
             type: "input",
             message: "Year (for License)",
             name: "year"
+        },
+        {
+            type: "input",
+            message: "Enter your GitHub username:",
+            name: "github"
+        },
+        {
+            type: "input",
+            message: "Enter your Email:",
+            name: "email"
         }
     ])
     .then(answers => {
@@ -75,7 +85,9 @@ function promptUser() {
             tests,
             license,
             appName,
-            year
+            year,
+            github,
+            email
         } = answers; 
 
         //Using the destructured responses, create an iterable array that holds the heading and its corresponding text. 
@@ -100,6 +112,10 @@ function promptUser() {
             {
                 heading: "Tests",
                 headingText: tests
+            },
+            {
+                heading: "Questions",
+                headingText: `* [GitHub](https://github.com/${github})\n* Questions and Other Inquiries: ${email}`
             },
             {
                 heading: "License",

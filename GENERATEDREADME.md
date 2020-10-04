@@ -7,31 +7,38 @@
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
+* [Questions](#questions)
 * [License](#license)
 
 ## Description
 
-Sample Description.
+sample
 
 
 ## Installation
 
-Sample installation instructions.
+sample
 
 
 ## Usage
 
-Sample usage information.
+sample
 
 
 ## Contributing
 
-Sample contribution guidelines.
+sample
 
 
 ## Tests
 
-Sample test instructions.
+sample
+
+
+## Questions
+
+* [GitHub](https://github.com/mhans003)
+* Questions and Other Inquiries: michaeledwardhanson@gmail.com
 
 
 ## License
