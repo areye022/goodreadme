@@ -1,5 +1,5 @@
-# Test
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Sample
+[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)
 
 ## Table of Contents
 * [Description](#description)
@@ -11,30 +11,30 @@
 
 ## Description
 
-test desc
+sample
 
 
 ## Installation
 
-test inst
+sample
 
 
 ## Usage
 
-test usage
+sample
 
 
 ## Contributing
 
-test cont
+sample
 
 
 ## Tests
 
-test inst
+sample
 
 
 ## License
 
-This application is licensed under the MIT License.
+This application is licensed under the The zlib/libpng License.
 

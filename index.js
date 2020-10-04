@@ -100,6 +100,7 @@ function promptUser() {
         //Create the README document using the project title. 
         createDocument(name); 
 
+        //Add the badge for the license under the title. 
         addBadge(License); 
 
         return headings; 
@@ -132,6 +133,7 @@ function createDocument(name) {
 }
 
 function addBadge(chosenLicense) {
+    //Add the correct badge to the page. 
     fs.appendFileSync("README.md", `${licenses.licenseDescriptions[chosenLicense].badge}\n`)
 }
 
