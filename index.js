@@ -1,7 +1,6 @@
 const licenses = require("./licenses.js"); 
 const fs = require("fs"); 
 const inquirer = require("inquirer"); 
-const util = require("util"); 
 
 //Create an array of just the license titles. 
 const licenseTitles = []; 
@@ -10,12 +9,11 @@ for(let license in licenses.licenseDescriptions) {
     //console.log(licenses.licenseDescriptions[license]); 
 }
 
-console.log(licenseTitles); 
-
 //Get the responses from the user. 
 promptUser(); 
 
 function promptUser() {
+    //Prompt the user for README information. 
     inquirer.prompt([
         {
             type: "input",
@@ -105,11 +103,11 @@ function promptUser() {
             },
             {
                 heading: "License",
-                headingText: `This application is licensed under the [${license}](./LICENSE.txt).`
+                headingText: `This application is licensed under the [${license}](./GENERATEDLICENSE.txt).`
             }
         ];
     
-        //Create the README document using the project title. 
+        //Create the README document using the project title, and give the file a name. 
         createDocument(name); 
 
         //Add the badge for the license under the title. 
@@ -127,7 +125,7 @@ function promptUser() {
         return headings; 
     })
     .then(headings => {
-
+        //For each of the main headings, create the table of contents. 
         headings.forEach(heading => {
             createTableOfContentsItem(heading); 
         }); 
@@ -139,39 +137,41 @@ function promptUser() {
         headings.forEach(heading => {
             addSection(heading.heading, heading.headingText); 
         }); 
+    })
+    .then(() => {
+        //Confirm the program is completed. 
+        console.log("README and LICENSE files available in current directory.");
     });
 }
 
 function createDocument(name) {
     //Create the README document. 
-    fs.writeFileSync("README.md", `# ${name}\n`);
+    fs.writeFileSync(`GENERATEDREADME.md`, `# ${name}\n`);
 }
 
 function addBadge(chosenLicense) {
     //Add the correct badge to the page. 
-    fs.appendFileSync("README.md", `${licenses.licenseDescriptions[chosenLicense].badge}\n`)
+    fs.appendFileSync("GENERATEDREADME.md", `${licenses.licenseDescriptions[chosenLicense].badge}\n`)
 }
 
 function createLicenseFile(chosenLicense, appName, year) {
-    fs.writeFileSync("LICENSE.txt", `Copyright (c) ${year} ${appName} \n\n ${licenses.licenseDescriptions[chosenLicense].text}`); 
+    //Create the LICENSE file. 
+    fs.writeFileSync("GENERATEDLICENSE.txt", `Copyright (c) ${year} ${appName} \n\n ${licenses.licenseDescriptions[chosenLicense].text}`); 
 }
 
 function createTableOfContents() {
-
-    fs.appendFileSync("README.md", `\n## Table of Contents\n`); 
-
+    //Create the table of contents. 
+    fs.appendFileSync("GENERATEDREADME.md", `\n## Table of Contents\n`); 
 }
 
 function createTableOfContentsItem(heading) {
-
-    fs.appendFileSync("README.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`); 
-
+    //Create table of contents. 
+    fs.appendFileSync("GENERATEDREADME.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`); 
 }
 
 async function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
-    fs.appendFileSync("README.md", `\n## ${heading}\n\n${headingText}\n\n`); 
-
+    fs.appendFileSync("GENERATEDREADME.md", `\n## ${heading}\n\n${headingText}\n\n`); 
 }
 
 
