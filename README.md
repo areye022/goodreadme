@@ -1,5 +1,5 @@
 # Sample
-[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 ## Table of Contents
 * [Description](#description)
@@ -11,7 +11,7 @@
 
 ## Description
 
-samplw
+sample
 
 
 ## Installation
@@ -36,5 +36,5 @@ sample
 
 ## License
 
-This application is licensed under the [BSD 2-Clause License](./LICENSE.txt).
+This application is licensed under the [CC0](./LICENSE.txt).
 

@@ -25,27 +25,27 @@ function promptUser() {
         {
             type: "input",
             message: "Application Description:",
-            name: "Description"
+            name: "description"
         },
         {
             type: "input",
             message: "Installation Instructions:",
-            name: "Installation"
+            name: "installation"
         },
         {
             type: "input",
             message: "Enter Usage Information:",
-            name: "Usage"
+            name: "usage"
         },
         {
             type: "input",
             message: "Contribution Guidelines:",
-            name: "Contributing"
+            name: "contributing"
         },
         {
             type: "input",
             message: "Test Instructions:",
-            name: "Tests"
+            name: "tests"
         },
         {
             type: "checkbox",
@@ -53,7 +53,7 @@ function promptUser() {
             choices: [
                 ...licenseTitles
             ],
-            name: "License"
+            name: "license"
         },
         {
             type: "input",
@@ -63,21 +63,21 @@ function promptUser() {
         {
             type: "input",
             message: "Year (for License)",
-            name: "Year"
+            name: "year"
         }
     ])
     .then(answers => {
         //Once responses are finished, destructure the responses so that they are each a separate variable and not held in answers object. 
         const { 
             name, 
-            Description,
-            Installation,
-            Usage,
-            Contributing,
-            Tests,
-            License,
+            description,
+            installation,
+            usage,
+            contributing,
+            tests,
+            license,
             appName,
-            Year
+            year
         } = answers; 
 
         //Using the destructured responses, create an iterable array that holds the heading and its corresponding text. 
@@ -85,27 +85,27 @@ function promptUser() {
         const headings = [
             {
                 heading: "Description",
-                headingText: Description
+                headingText: description
             },
             {
                 heading: "Installation",
-                headingText: Installation
+                headingText: installation
             },
             {
                 heading: "Usage",
-                headingText: Usage
+                headingText: usage
             },
             {
                 heading: "Contributing",
-                headingText: Contributing
+                headingText: contributing
             },
             {
                 heading: "Tests",
-                headingText: Tests
+                headingText: tests
             },
             {
                 heading: "License",
-                headingText: `This application is licensed under the [${License}](./LICENSE.txt).`
+                headingText: `This application is licensed under the [${license}](./LICENSE.txt).`
             }
         ];
     
@@ -113,16 +113,16 @@ function promptUser() {
         createDocument(name); 
 
         //Add the badge for the license under the title. 
-        addBadge(License); 
+        addBadge(license); 
 
         //Create the LICENSE document.
-        createLicenseFile(License, appName, Year); 
+        createLicenseFile(license, appName, year); 
 
         return headings; 
     })
     .then(headings => {
         //Create the Table of Contents
-        createTableOfContents(headings); 
+        createTableOfContents(); 
 
         return headings; 
     })
@@ -156,7 +156,7 @@ function createLicenseFile(chosenLicense, appName, year) {
     fs.writeFileSync("LICENSE.txt", `Copyright (c) ${year} ${appName} \n\n ${licenses.licenseDescriptions[chosenLicense].text}`); 
 }
 
-function createTableOfContents(headings) {
+function createTableOfContents() {
 
     fs.appendFileSync("README.md", `\n## Table of Contents\n`); 
 
