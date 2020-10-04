@@ -1,4 +1,5 @@
 # Good README Generator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![Screenshot of Good README Generator](./assets/images/screenshot1.jpg)
 ![Screenshot of Good README Generator](./assets/images/screenshot2.jpg)
