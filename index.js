@@ -146,8 +146,6 @@ function promptUser() {
 
         //Confirm the program is completed. 
         console.log("README and LICENSE files available in current directory.");
-
-        //return headings; 
     });
 }
 
