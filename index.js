@@ -6,7 +6,6 @@ const inquirer = require("inquirer");
 const licenseTitles = []; 
 for(let license in licenses.licenseDescriptions) {
     licenseTitles.push(license); 
-    //console.log(licenses.licenseDescriptions[license]); 
 }
 
 //Get the responses from the user. 
@@ -75,7 +74,7 @@ function promptUser() {
         }
     ])
     .then(answers => {
-        //Once responses are finished, destructure the responses so that they are each a separate variable and not held in answers object. 
+        //Once responses are finished, destructure the responses so that they are each a separate variable. 
         const { 
             name, 
             description,
@@ -132,31 +131,23 @@ function promptUser() {
         //Create the LICENSE document.
         createLicenseFile(license, appName, year); 
 
-        return headings; 
-    })
-    .then(headings => {
         //Create the Table of Contents
         createTableOfContents(); 
 
-        return headings; 
-    })
-    .then(headings => {
         //For each of the main headings, create the table of contents. 
         headings.forEach(heading => {
             createTableOfContentsItem(heading); 
         }); 
 
-        return headings; 
-    })
-    .then(headings => {
         //For each heading, add the appropriate section to the README.
         headings.forEach(heading => {
             addSection(heading.heading, heading.headingText); 
         }); 
-    })
-    .then(() => {
+
         //Confirm the program is completed. 
         console.log("README and LICENSE files available in current directory.");
+
+        //return headings; 
     });
 }
 
@@ -189,6 +180,7 @@ async function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
     fs.appendFileSync("GENERATEDREADME.md", `\n## ${heading}\n\n${headingText}\n\n`); 
 }
+
 
 
 
