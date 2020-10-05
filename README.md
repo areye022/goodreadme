@@ -13,6 +13,10 @@ When this program is run using Node.js (node index.js) in the terminal, the user
 
 The program ensures that the headings for each section of the README as well as the table of contents will be automatically created. They will also be created in the same order as presented to the user. 
 
+## Demonstration
+
+[CLICK HERE](https://drive.google.com/file/d/1S-GIJUV2yjVxc-2GnDCKPNezs5XwmPWp/view?usp=sharing) for a video that demonstrates the use of this project! 
+
 ## Features
 
 * Runs in the command line using Node.js.
