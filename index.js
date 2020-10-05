@@ -174,7 +174,7 @@ function createTableOfContentsItem(heading) {
     fs.appendFileSync("GENERATEDREADME.md", `* [${heading.heading}](#${heading.heading.toLowerCase()})\n`); 
 }
 
-async function addSection(heading, headingText) {
+function addSection(heading, headingText) {
     //Using the given heading and text, add it to the readme document that was created. 
     fs.appendFileSync("GENERATEDREADME.md", `\n## ${heading}\n\n${headingText}\n\n`); 
 }
